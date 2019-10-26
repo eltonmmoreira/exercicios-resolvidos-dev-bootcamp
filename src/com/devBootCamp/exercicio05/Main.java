@@ -4,9 +4,7 @@ import java.text.DecimalFormat;
 
 public class Main {
     public static void main(String[] args) {
-        var vendedor = new Vendedor("Elton", "11111111111", 1250.50, 100D);
-        vendedor.setValorProdutosVendidos(2000D);
-        vendedor.setPercentualDeComissao(20D);
+        var vendedor = new Vendedor("Elton", "11111111111", 1250.50, 100D, 2000D, 20D);
         var formatter = new DecimalFormat("#,##0.00");
         System.out.println("Vendedor: ");
         System.out.println(vendedor.getNome());

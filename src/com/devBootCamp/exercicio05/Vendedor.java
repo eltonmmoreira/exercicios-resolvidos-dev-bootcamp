@@ -6,8 +6,10 @@ public class Vendedor extends Empregado {
     private Double valorProdutosVendidos;
     private Double percentualDeComissao;
 
-    public Vendedor(String nome, String cpf, Double salarioBase, Double impostos) {
+    public Vendedor(String nome, String cpf, Double salarioBase, Double impostos, Double valorProdutosVendidos, Double percentualDeComissao) {
         super(nome, cpf, salarioBase, impostos);
+        this.valorProdutosVendidos = valorProdutosVendidos;
+        this.percentualDeComissao = percentualDeComissao;
     }
 
     public Double getValorProdutosVendidos() {
