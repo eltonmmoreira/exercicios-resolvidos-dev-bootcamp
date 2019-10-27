@@ -127,9 +127,7 @@ public class Carro {
     }
 
     public void acelera() {
-        if ((velocidadeAtual + 1) > velocidadeMaxima) {
-            velocidadeAtual = velocidadeMaxima;
-        } else {
+        if (!velocidadeAtual.equals(velocidadeMaxima)) {
             velocidadeAtual++;
         }
     }
@@ -139,24 +137,20 @@ public class Carro {
     }
 
     public void trocarMarcha() {
-        if ((marchaAtual + 1) > numeroDeMarchas) {
-            marchaAtual = numeroDeMarchas;
-        } else {
+        if (!marchaAtual.equals(numeroDeMarchas)) {
             marchaAtual++;
         }
     }
 
     public void reduzirMarcha() {
-        if ((marchaAtual - 1) < 0) {
-            marchaAtual = 0;
-        } else {
+        if (!marchaAtual.equals(0)) {
             marchaAtual--;
         }
     }
 
     public void marchaRe() {
         if (velocidadeAtual == 0) {
-            marchaAtual = -1;
+            marchaAtual = 0;
         } else {
             System.out.println("Não é possível colocar a marcha Ré com o veículo em movimento. Velocidade " + velocidadeAtual);
         }
