@@ -10,6 +10,7 @@ public class Main {
 
         var cliente = new Cliente("Elton");
         var vendedor = new Vendedor("João");
+        vendedor.setEmail("vendedor@email.com");
         vendedor.setPercentualDeComissao(10D);
         vendedor.setPercentualDeDescontoMaximo(5D);
 

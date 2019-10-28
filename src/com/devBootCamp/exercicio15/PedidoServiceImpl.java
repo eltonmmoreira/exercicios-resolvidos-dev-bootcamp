@@ -66,7 +66,7 @@ public class PedidoServiceImpl extends CrudServiceImpl<Pedido> implements Pedido
 
         var emailCliente = new Email("elton@viasoft.com.br", "gaspar@viasoft.com.br");
         emailCliente.setTitulo("Pedido realizado com sucesso");
-        emailCliente.setConteudo(entity.getResumo());
+        emailCliente.setConteudo("Resumo do pedido: \n" + entity.getResumo());
         emailService.enviarEmail(emailCliente);
     }
 }
