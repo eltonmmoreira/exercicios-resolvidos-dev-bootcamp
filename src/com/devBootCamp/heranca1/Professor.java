@@ -15,6 +15,10 @@ public class Professor extends Funcionario {
         return professorCursoList;
     }
 
+    public void adicionarCurso(ProfessorCurso professorCurso) {
+        professorCursoList.add(professorCurso);
+    }
+
     @Override
     public Double calcularSalario() {
         var percentual = 0D;
