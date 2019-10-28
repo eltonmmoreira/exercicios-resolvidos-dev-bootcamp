@@ -67,7 +67,7 @@ public class Voo {
             }
         }
 
-//        return assentosLivres.stream().filter(a -> a >= numeroAssento)
+//        return assentosLivres.stream().filter(a -> a > numeroAssento)
 //                .findFirst()
 //                .orElse(null);
         return null;
