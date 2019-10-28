@@ -97,7 +97,7 @@ public class Pedido {
     public void adicionarItem(PedidoItem pedidoItem) {
         if (validarItem(pedidoItem)) {
             itens.add(pedidoItem);
-            System.out.println("Item adicionado" + pedidoItem.getItem().getDescricao());
+            System.out.println("Item adicionado - " + pedidoItem.getItem().getDescricao());
         }
     }
 
@@ -122,7 +122,7 @@ public class Pedido {
                 .append("Data de validade: ").append(formatarData(dataDeValidade)).append("\n")
                 .append("Endereço de Entrega: ").append(enderecoDeEntrega).append("\n")
                 .append("Observação: ").append(observacao).append("\n")
-                .append("Forma de pagamento: ").append(formaDePagamento.getLabel()).append("\n \n");
+                .append("Forma de pagamento: ").append(formaDePagamento != null ? formaDePagamento.getLabel() : null).append("\n \n");
 
 //        System.out.println("Cliente: " + cliente.getNome());
 //        System.out.println("Vendedor: " + vendedor.getNome());

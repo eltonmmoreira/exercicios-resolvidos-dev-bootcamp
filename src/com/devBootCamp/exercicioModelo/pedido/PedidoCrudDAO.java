@@ -2,7 +2,7 @@ package com.devBootCamp.exercicioModelo.pedido;
 
 import java.util.List;
 
-public interface PedidoService {
+public interface PedidoCrudDAO {
 
     Pedido salvar(Pedido pedido);
 
