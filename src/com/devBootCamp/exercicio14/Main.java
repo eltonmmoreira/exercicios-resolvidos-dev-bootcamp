@@ -36,6 +36,9 @@ public class Main {
         var proximoLivre = voo.proximoAssentoLivre(33);
         System.out.println("Próximo assento livre: " + proximoLivre);
         loggerAssentosLivresEOcupados(voo);
+
+        var voo2 = voo.clone();
+        System.out.println(voo2);
     }
 
     private static void loggerOcuparAssento(Voo voo, Integer assento) {
