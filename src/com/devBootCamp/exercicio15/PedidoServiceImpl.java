@@ -8,8 +8,17 @@ public class PedidoServiceImpl extends CrudServiceImpl<Pedido> implements Pedido
 
     private CrudDAO<Pedido> dao = new CrudDAOImpl<>();
 
+    private EmailService emailService = new EmailServiceImpl();
+
     @Override
     protected CrudDAO<Pedido> getCrudDAO() {
         return dao;
+    }
+
+    @Override
+    protected void postSave(Pedido entity) {
+        super.postSave(entity);
+        var email = new Email("elton@viasoft.com.br", "gaspar@viasoft.com.br");
+        emailService.enviarEmail(email);
     }
 }
