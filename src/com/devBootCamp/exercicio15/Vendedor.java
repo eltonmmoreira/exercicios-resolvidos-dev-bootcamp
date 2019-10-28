@@ -3,6 +3,7 @@ package com.devBootCamp.exercicio15;
 public class Vendedor {
     private Integer id;
     private String nome;
+    private String email;
     private Double percentualDeComissao;
     private Double percentualDeDescontoMaximo;
 
@@ -36,5 +37,13 @@ public class Vendedor {
 
     public String getNome() {
         return nome;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

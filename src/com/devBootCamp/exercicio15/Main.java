@@ -17,17 +17,17 @@ public class Main {
         pedido.setFormaDePagamento(FormaDePagamento.CARTAO);
 
         var celular = new Item("Celular", 2D);
-        var notebook = new Item("Macbook", 5D);
+        var notebook = new Item("Macbook", 1D);
 
         var pedidoItemCelular = new PedidoItem(pedido, celular, 1D, 1000D);
         var pedidoItemNotebook = new PedidoItem(pedido, notebook, 2D, 5000D);
         pedidoItemNotebook.setValorDesconto(100D);
 
-        pedido.getItens().add(pedidoItemCelular);
-        pedido.getItens().add(pedidoItemNotebook);
+        pedido.adicionarItem(pedidoItemCelular);
+        pedido.adicionarItem(pedidoItemNotebook);
 
         var pedidoGravado = pedidoService.salvar(pedido);
-        pedidoGravado.resumo();
+        System.out.println(pedidoGravado.getResumo());
 
     }
 }

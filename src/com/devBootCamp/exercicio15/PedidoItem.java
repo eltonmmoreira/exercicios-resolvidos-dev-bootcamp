@@ -14,7 +14,6 @@ public class PedidoItem {
         this.quantidade = quantidade;
         this.valorUnitario = valorUnitario;
         valorDesconto = 0D;
-        valorUnitario = 0D;
     }
 
     public Integer getId() {

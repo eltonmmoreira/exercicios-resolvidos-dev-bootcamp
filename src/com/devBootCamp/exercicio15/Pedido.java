@@ -5,6 +5,9 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.devBootCamp.Util.formatarData;
+import static com.devBootCamp.Util.formatarValor;
+
 public class Pedido {
     private Integer id;
     private Cliente cliente;
@@ -87,33 +90,76 @@ public class Pedido {
         return itens;
     }
 
-    public void setItens(List<PedidoItem> itens) {
-        this.itens = itens;
+    public void adicionarItem(PedidoItem pedidoItem) {
+        if (validarItem(pedidoItem)) {
+            itens.add(pedidoItem);
+            System.out.println("Item adicionado" + pedidoItem.getItem().getDescricao());
+        }
     }
 
-    public void resumo() {
-        System.out.println("Cliente: " + cliente.getNome());
-        System.out.println("Vendedor: " + vendedor.getNome());
-        System.out.println("Data de cadastro: " + dataDeCadastro);
-        System.out.println("Data Previsão de Entrega: " + dataPrevisaoDeEntrega);
-        System.out.println("Data de validade: " + dataDeValidade);
-        System.out.println("Endereço de Entrega: " + enderecoDeEntrega);
-        System.out.println("Observação: " + observacao);
-        System.out.println("Forma de pagamento: " + formaDePagamento.getLabel());
-        System.out.println();
+    private boolean validarItem(PedidoItem pedidoItem) {
+        if (pedidoItem.getValorUnitario() <= 0
+                || pedidoItem.getValorDesconto() > pedidoItem.getValorTotal()
+                || Boolean.TRUE.equals(pedidoItem.getItem().getInativo())
+                || pedidoItem.getItem().getQuantidadeEmEstoque() < pedidoItem.getQuantidade()) {
+            System.out.println("Item não adicionado - " + pedidoItem.getItem().getDescricao());
+            return false;
+        }
+
+        return true;
+    }
+
+    public String getResumo() {
+        StringBuilder resumo = new StringBuilder()
+                .append("Cliente: ").append(cliente.getNome()).append("\n")
+                .append("Vendedor: ").append(vendedor.getNome()).append("\n")
+                .append("Data de cadastro: ").append(formatarData(dataDeCadastro)).append("\n")
+                .append("Data Previsão de Entrega: ").append(formatarData(dataPrevisaoDeEntrega)).append("\n")
+                .append("Data de validade: ").append(formatarData(dataDeValidade)).append("\n")
+                .append("Endereço de Entrega: ").append(enderecoDeEntrega).append("\n")
+                .append("Observação: ").append(observacao).append("\n")
+                .append("Forma de pagamento: ").append(formaDePagamento.getLabel()).append("\n \n");
+
+//        System.out.println("Cliente: " + cliente.getNome());
+//        System.out.println("Vendedor: " + vendedor.getNome());
+//        System.out.println("Data de cadastro: " + dataDeCadastro);
+//        System.out.println("Data Previsão de Entrega: " + dataPrevisaoDeEntrega);
+//        System.out.println("Data de validade: " + dataDeValidade);
+//        System.out.println("Endereço de Entrega: " + enderecoDeEntrega);
+//        System.out.println("Observação: " + observacao);
+//        System.out.println("Forma de pagamento: " + formaDePagamento.getLabel());
+//        System.out.println();
 
         var valorTotal = 0D;
         for (PedidoItem item : itens) {
-            System.out.println("Produto: " + item.getItem().getDescricao());
-            System.out.println("Quantidade: " + item.getQuantidade());
-            System.out.println("Valor Unitário: " + item.getValorUnitario());
-            System.out.println("Valor Desconto: " + item.getValorDesconto());
-            System.out.println("Valor Total: " + item.getValorTotal());
+            resumo.append("Produto: ")
+                    .append(item.getItem().getDescricao())
+                    .append("\n")
+                    .append("Quantidade: ")
+                    .append(item.getQuantidade())
+                    .append("\n" )
+                    .append("Valor Unitário: ")
+                    .append(formatarValor(item.getValorUnitario()))
+                    .append("\n")
+                    .append("Valor Desconto: ")
+                    .append(formatarValor(item.getValorDesconto()))
+                    .append("\n")
+                    .append("Valor Total: ")
+                    .append(formatarValor(item.getValorTotal()))
+                    .append("\n");
+
+//            System.out.println("Produto: " + item.getItem().getDescricao());
+//            System.out.println("Quantidade: " + item.getQuantidade());
+//            System.out.println("Valor Unitário: " + item.getValorUnitario());
+//            System.out.println("Valor Desconto: " + item.getValorDesconto());
+//            System.out.println("Valor Total: " + item.getValorTotal());
             if (item.getValorTotal() != null) {
                 valorTotal += item.getValorTotal();
             }
             System.out.println();
         }
-        System.out.println("Total Pedido: " + valorTotal);
+        resumo.append("Total Pedido: ").append(formatarValor(valorTotal));
+        return resumo.toString();
+        //System.out.println("Total Pedido: " + valorTotal);
     }
 }
