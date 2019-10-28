@@ -14,6 +14,8 @@ public class PedidoServiceImpl implements PedidoService {
 
     @Override
     public Pedido salvar(Pedido pedido) {
+        validarAntesDeSalvar(pedido);
+
         pedido = pedidoCrudDAO.salvar(pedido);
 
         emailService.enviarEmail(new Email("viasoft.com.br", "cliente@teste.com"));
@@ -23,5 +25,11 @@ public class PedidoServiceImpl implements PedidoService {
     @Override
     public List<Pedido> findAll() {
         return pedidoCrudDAO.findAll();
+    }
+
+    private void validarAntesDeSalvar(Pedido pedido) {
+        if (pedido.getFormaDePagamento() == null) {
+            throw new RuntimeException("Forma de pagamento não informada!");
+        }
     }
 }

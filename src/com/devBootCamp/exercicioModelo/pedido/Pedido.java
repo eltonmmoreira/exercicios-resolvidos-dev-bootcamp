@@ -101,11 +101,9 @@ public class Pedido {
         }
     }
 
+    @SuppressWarnings("Duplicates")
     private boolean validarItem(PedidoItem pedidoItem) {
-        if (pedidoItem.getValorUnitario() <= 0
-                || pedidoItem.getValorDesconto() > pedidoItem.getValorTotal()
-                || Boolean.TRUE.equals(pedidoItem.getItem().getInativo())
-                || pedidoItem.getItem().getQuantidadeEmEstoque() < pedidoItem.getQuantidade()) {
+        if (pedidoItem.getValorUnitario() <= 0 || pedidoItem.getItem().getQuantidadeEmEstoque() < pedidoItem.getQuantidade()) {
             System.out.println("Item não adicionado - " + pedidoItem.getItem().getDescricao());
             return false;
         }
@@ -113,6 +111,7 @@ public class Pedido {
         return true;
     }
 
+    @SuppressWarnings("Duplicates")
     public String getResumo() {
         StringBuilder resumo = new StringBuilder()
                 .append("Cliente: ").append(cliente.getNome()).append("\n")
@@ -123,16 +122,6 @@ public class Pedido {
                 .append("Endereço de Entrega: ").append(enderecoDeEntrega).append("\n")
                 .append("Observação: ").append(observacao).append("\n")
                 .append("Forma de pagamento: ").append(formaDePagamento != null ? formaDePagamento.getLabel() : null).append("\n \n");
-
-//        System.out.println("Cliente: " + cliente.getNome());
-//        System.out.println("Vendedor: " + vendedor.getNome());
-//        System.out.println("Data de cadastro: " + dataDeCadastro);
-//        System.out.println("Data Previsão de Entrega: " + dataPrevisaoDeEntrega);
-//        System.out.println("Data de validade: " + dataDeValidade);
-//        System.out.println("Endereço de Entrega: " + enderecoDeEntrega);
-//        System.out.println("Observação: " + observacao);
-//        System.out.println("Forma de pagamento: " + formaDePagamento.getLabel());
-//        System.out.println();
 
         var valorTotal = 0D;
         for (PedidoItem item : itens) {
@@ -152,11 +141,6 @@ public class Pedido {
                     .append(formatarValor(item.getValorTotal()))
                     .append("\n");
 
-//            System.out.println("Produto: " + item.getItem().getDescricao());
-//            System.out.println("Quantidade: " + item.getQuantidade());
-//            System.out.println("Valor Unitário: " + item.getValorUnitario());
-//            System.out.println("Valor Desconto: " + item.getValorDesconto());
-//            System.out.println("Valor Total: " + item.getValorTotal());
             if (item.getValorTotal() != null) {
                 valorTotal += item.getValorTotal();
             }
@@ -164,6 +148,5 @@ public class Pedido {
         }
         resumo.append("Total Pedido: ").append(formatarValor(valorTotal));
         return resumo.toString();
-        //System.out.println("Total Pedido: " + valorTotal);
     }
 }
