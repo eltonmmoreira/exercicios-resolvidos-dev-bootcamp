@@ -7,13 +7,14 @@ public class PedidoItem {
     private Double quantidade;
     private Double valorUnitario;
     private Double valorDesconto;
-    private Double valorTotal;
 
     public PedidoItem(Pedido pedido, Item item, Double quantidade, Double valorUnitario) {
         this.pedido = pedido;
         this.item = item;
         this.quantidade = quantidade;
         this.valorUnitario = valorUnitario;
+        valorDesconto = 0D;
+        valorUnitario = 0D;
     }
 
     public Integer getId() {
@@ -49,6 +50,6 @@ public class PedidoItem {
     }
 
     public Double getValorTotal() {
-        return valorTotal;
+        return (quantidade * valorUnitario) - valorDesconto;
     }
 }
