@@ -6,13 +6,17 @@ public class ClienteServiceImpl implements ClienteService {
 
     private ClienteCrudDAO clienteCrudDAO = new ClienteCrudDAOImpl();
 
+    private ClienteCrudDAO clienteCrudDAOMemory = new ClienteCrudDAOMemoryImpl();
+
     @Override
     public Cliente salvar(Cliente cliente) {
-        return clienteCrudDAO.salvar(cliente);
+        //return clienteCrudDAO.salvar(cliente);
+        return clienteCrudDAOMemory.salvar(cliente);
     }
 
     @Override
     public List<Cliente> findAll() {
-        return clienteCrudDAO.findAll();
+        //return clienteCrudDAO.findAll();
+        return clienteCrudDAOMemory.findAll();
     }
 }

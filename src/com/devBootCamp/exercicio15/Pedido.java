@@ -8,7 +8,7 @@ import java.util.List;
 import static com.devBootCamp.Util.formatarData;
 import static com.devBootCamp.Util.formatarValor;
 
-public class Pedido {
+public class Pedido implements BaseObject {
     private Integer id;
     private Cliente cliente;
     private Vendedor vendedor;
@@ -111,6 +111,7 @@ public class Pedido {
 
     public String getResumo() {
         StringBuilder resumo = new StringBuilder()
+                .append("Código: ").append(id).append("\n")
                 .append("Cliente: ").append(cliente.getNome()).append("\n")
                 .append("Vendedor: ").append(vendedor.getNome()).append("\n")
                 .append("Data de cadastro: ").append(formatarData(dataDeCadastro)).append("\n")

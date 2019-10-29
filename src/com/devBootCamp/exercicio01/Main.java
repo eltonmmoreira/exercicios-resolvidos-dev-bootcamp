@@ -16,5 +16,13 @@ public class Main {
         pessoa.getTelefones().add(new Telefone("46 2131231", TipoTelefone.RESIDENCIAL));
         pessoa.getTelefones().add(new Telefone("46 99923123129", TipoTelefone.CELULAR));
         pessoa.dadosDaPessoa();
+
+        var p = new Pessoa();
+        p.setCpf("1");
+
+        var p2 = new Pessoa();
+        p2.setCpf("1");
+
+        System.out.println(p.equals(p2));
     }
 }

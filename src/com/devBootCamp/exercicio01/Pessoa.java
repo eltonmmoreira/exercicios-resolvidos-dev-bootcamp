@@ -5,6 +5,7 @@ import com.devBootCamp.Util;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import static com.devBootCamp.Util.formatarData;
 
@@ -82,4 +83,17 @@ public class Pessoa {
             System.out.println("Tipo: " + telefone.getTipoTelefone().getLabel());
         }
     }
+
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//        Pessoa pessoa = (Pessoa) o;
+//        return Objects.equals(cpf, pessoa.cpf);
+//    }
+//
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(cpf);
+//    }
 }

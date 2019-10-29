@@ -56,5 +56,20 @@ public class Main {
         pedido.adicionarItem(notebookPedido);
         var pedidoInserido = pedidoService.salvar(pedido);
         System.out.println(pedidoInserido.getResumo());
+
+//        ClienteService clienteService = new ClienteServiceImpl();
+//        var cliente = new Cliente("Elton");
+//        clienteService.salvar(cliente);
+//
+//        var cliente2 = new Cliente("WEQRWQE");
+//        clienteService.salvar(cliente2);
+//
+//        var cliente3 = new Cliente("rewqrew");
+//        clienteService.salvar(cliente3);
+//
+//        var clientes = clienteService.findAll();
+//        for (Cliente c : clientes) {
+//            System.out.println(c.getId() + " - " + c.getNome());
+//        }
     }
 }

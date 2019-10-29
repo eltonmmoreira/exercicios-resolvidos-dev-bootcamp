@@ -1,8 +1,10 @@
 package com.devBootCamp.exercicio15.crud;
 
+import com.devBootCamp.exercicio15.BaseObject;
+
 import java.util.List;
 
-public abstract class CrudServiceImpl<T> implements CrudService<T> {
+public abstract class CrudServiceImpl<T extends BaseObject> implements CrudService<T> {
 
     protected abstract CrudDAO<T> getCrudDAO();
 

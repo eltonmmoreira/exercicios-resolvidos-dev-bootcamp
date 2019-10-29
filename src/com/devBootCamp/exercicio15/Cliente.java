@@ -1,6 +1,6 @@
 package com.devBootCamp.exercicio15;
 
-public class Cliente {
+public class Cliente implements BaseObject {
     private Integer id;
     private String nome;
     private String email;

@@ -26,9 +26,7 @@ public class Main {
 
         pedido.adicionarItem(pedidoItemCelular);
         pedido.adicionarItem(pedidoItemNotebook);
-
         var pedidoGravado = pedidoService.salvar(pedido);
         System.out.println(pedidoGravado.getResumo());
-
     }
 }

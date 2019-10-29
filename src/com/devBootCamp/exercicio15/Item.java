@@ -1,6 +1,6 @@
 package com.devBootCamp.exercicio15;
 
-public class Item {
+public class Item implements BaseObject {
     private Integer id;
     private String descricao;
     private Boolean inativo;
