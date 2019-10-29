@@ -10,13 +10,11 @@ public class ClienteServiceImpl implements ClienteService {
 
     @Override
     public Cliente salvar(Cliente cliente) {
-        //return clienteCrudDAO.salvar(cliente);
-        return clienteCrudDAOMemory.salvar(cliente);
+        return clienteCrudDAO.salvar(cliente);
     }
 
     @Override
     public List<Cliente> findAll() {
-        //return clienteCrudDAO.findAll();
-        return clienteCrudDAOMemory.findAll();
+        return clienteCrudDAO.findAll();
     }
 }
