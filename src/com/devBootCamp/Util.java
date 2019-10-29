@@ -11,6 +11,9 @@ public class Util {
     }
 
     public static String formatarValor(Double valor) {
+        if (valor == null) {
+            return null;
+        }
         var formatter = new DecimalFormat("#,##0.00");
         return formatter.format(valor);
     }
