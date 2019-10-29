@@ -11,6 +11,10 @@ public class Main {
         pessoa.setSobrenome("M. Moreira");
         pessoa.setCpf("12123123123");
         pessoa.setDataDeNascimento(LocalDate.of(1987, Month.JUNE, 13));
-        System.out.println(pessoa.getNomeFormatado());
+        pessoa.getEnderecos().add(new Endereco("Rua Teste", "123", "Teste"));
+        pessoa.getEnderecos().add(new Endereco("Rua Teste2", "SN", "Teste"));
+        pessoa.getTelefones().add(new Telefone("46 2131231", TipoTelefone.RESIDENCIAL));
+        pessoa.getTelefones().add(new Telefone("46 99923123129", TipoTelefone.CELULAR));
+        pessoa.dadosDaPessoa();
     }
 }
